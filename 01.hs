@@ -1,18 +1,14 @@
-module Day01
-  ( solution01a,
-    solution01b,
-  )
-where
-
 import Data.Char (isDigit)
 import Data.IntMap (fromList)
 import Data.Text (pack, replace, unpack)
 import System.IO
 
+fileName = "01data.txt"
+
 main :: IO ()
 main = do
   withFile
-    "01test.txt"
+    fileName
     ReadMode
     ( \h -> do
         contents <- hGetContents h
