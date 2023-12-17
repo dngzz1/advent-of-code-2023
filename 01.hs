@@ -12,6 +12,9 @@ main = do
     ReadMode
     ( \h -> do
         contents <- hGetContents h
+        print "Solution 01a:"
+        print $ solution01a contents
+        print "Solution 01b:"
         print $ solution01b contents
     )
 
@@ -52,7 +55,7 @@ calibratedValue = extractDigits . replacedString
 replacedString :: String -> String
 replacedString = unpack . replaceAllWords . pack
   where
-    replaceAllWords = composeAll $ map replaceWord $ digitsDict
+    replaceAllWords = composeAll $ map replaceWord digitsDict
     replaceWord pair = replace (pack (fst pair)) (pack (snd pair))
 
 composeAll :: [a -> a] -> a -> a
