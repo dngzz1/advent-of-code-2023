@@ -29,15 +29,15 @@ parseInt d = read d :: Int
 
 digitsDict :: [(String, String)]
 digitsDict =
-  [ ("one", "1"),
-    ("two", "2"),
-    ("three", "3"),
-    ("four", "4"),
-    ("five", "5"),
-    ("six", "6"),
-    ("seven", "7"),
-    ("eight", "8"),
-    ("nine", "9")
+  [ ("one", "one1one"),
+    ("two", "two2two"),
+    ("three", "three3three"),
+    ("four", "four4four"),
+    ("five", "five5five"),
+    ("six", "six6six"),
+    ("seven", "seven7seven"),
+    ("eight", "eight8eight"),
+    ("nine", "nine9nine")
   ]
 
 solution01b :: String -> Int
@@ -52,7 +52,7 @@ calibratedValue = extractDigits . replacedString
 replacedString :: String -> String
 replacedString = unpack . replaceAllWords . pack
   where
-    replaceAllWords = composeAll $ map replaceWord $ reverse digitsDict
+    replaceAllWords = composeAll $ map replaceWord $ digitsDict
     replaceWord pair = replace (pack (fst pair)) (pack (snd pair))
 
 composeAll :: [a -> a] -> a -> a
